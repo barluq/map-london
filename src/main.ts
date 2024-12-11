@@ -2,5 +2,14 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import OpenLayersMap from "vue3-openlayers";
 
-createApp(App).mount('#app')
+import "vue3-openlayers/styles.css";
+
+
+let app = createApp(App)
+
+app.use(OpenLayersMap /*, options */);
+app.mount('#app')
+
+

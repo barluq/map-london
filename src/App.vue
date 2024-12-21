@@ -1,22 +1,20 @@
 <script setup lang="ts">
 import { Map, Layers, Sources } from "vue3-openlayers";
+import { Maptiler } from "./utils/sourcesMap";
 
 </script>
 
 <template>
-    <Map.OlMap id="map">
-      <Map.OlView :center="[40, 40]" :zoom="5" projection="EPSG:4326" />
-      <Layers.OlTileLayer>
-        <Sources.OlSourceOsm />
-      </Layers.OlTileLayer>
-    </Map.OlMap>
+  <Map.OlMap id="map">
+    <Map.OlView :center="[40, 40]" :zoom="10" projection="EPSG:3857" />
+    <Layers.OlTileLayer>
+      <Sources.OlSourceXyz :url="Maptiler.DarkDataviz" :tileSize="[512, 512]" />
+    </Layers.OlTileLayer>
+  </Map.OlMap>
 </template>
 
 <style scoped>
-
-#map{
-  height: 1000px;
-  width: 1000px;
+#map {
+  height: 100vh;
 }
-
 </style>

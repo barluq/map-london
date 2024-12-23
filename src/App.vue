@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { Map, Layers, Sources } from "vue3-openlayers";
-import { Maptiler } from "./utils/basemaps";
+import { Map } from "vue3-openlayers";
 import { fromLonLat } from "ol/proj";
 
 </script>
@@ -8,9 +7,7 @@ import { fromLonLat } from "ol/proj";
 <template>
   <Map.OlMap id="map">
     <Map.OlView :center="fromLonLat([-0.09, 51])" :zoom="9" projection="EPSG:3857" />
-    <Layers.OlTileLayer>
-      <Sources.OlSourceXyz :url="Maptiler.DarkDataviz" :tileSize="[512, 512]" />
-    </Layers.OlTileLayer>
+    <BasemapTileLayer />
   </Map.OlMap>
 </template>
 
